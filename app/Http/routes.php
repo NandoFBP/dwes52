@@ -21,12 +21,23 @@ Route::controllers([
     'password'  =>  'Auth\PasswordController'
 ]);
 
+Route::group(['prefix' => 'admin', 'namespace' => 'App\Http\Controllers\Admin'], function(){
+
+    Route::resource('users', 'UsersController');
+
+});
+
+
+
+
+
+/*
 Route::get('example', function(){
-    $user = 'Pepe';
+    //$user = 'Pepe';
     return view('examples.template', compact('user'));
 });
 
-/*
+
 Route::get('test', 'TestController@index');
 
 Route::post('test/{id}', 'TestController@create');
@@ -45,4 +56,10 @@ Route::post('test/{id}', 'TestController@create');
 
 Route::group(['middleware' => ['web']], function () {
     //
+});
+
+Route::group(['middleware' => 'web'], function () {
+    Route::auth();
+
+    Route::get('/home', 'HomeController@index');
 });
