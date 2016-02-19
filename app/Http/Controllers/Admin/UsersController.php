@@ -29,4 +29,15 @@ class UsersController extends Controller
 
         return redirect()->route('admin.users.index');
     }
+
+    public function edit($id)
+    {
+        $user = User::findOrFail($id);
+        return view('admin.users.edit', compact('user'));
+    }
 }
+
+
+
+
+

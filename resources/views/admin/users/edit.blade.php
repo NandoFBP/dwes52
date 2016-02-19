@@ -8,10 +8,10 @@
                 <div class="panel-heading">Nuevo Usuario</div>
 
                 <div class="panel-body">
-                    {{ Form::open(['route' => 'admin.users.store', 'method' => 'post']) }}
+                    {{ Form::open(['route' => 'admin.users.update', 'method' => 'PUT']) }}
                         @include('admin.users.partials.fields')
                         <button type="submit" class="btn btn-default">
-                            Crear Usuario
+                            Actualizar Usuario
                         </button>
                     {{ Form::close() }}
                 </div>
