@@ -21,7 +21,7 @@ Route::controllers([
     'password'  =>  'Auth\PasswordController'
 ]);
 
-Route::group(['prefix' => 'admin', 'namespace' => 'App\Http\Controllers\Admin'], function(){
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function(){
 
     Route::resource('users', 'UsersController');
 

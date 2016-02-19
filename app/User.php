@@ -12,7 +12,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'firstName', 'lastName', 'email', 'password', 'rol'
     ];
 
     /**
@@ -34,5 +34,9 @@ class User extends Authenticatable
         return $this->hasOne('App\UserProfile');
     }
 
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = md5($value);
+    }
 
 }
